@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Strike: Supabase Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <div id="game-container">
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+        <div id="menu-overlay" class="overlay">
+            <h1>NEON STRIKE</h1>
+            <div id="auth-section">
+                <input type="email" id="email" placeholder="Email">
+                <input type="password" id="password" placeholder="Password">
+                <div class="row">
+                    <button onclick="handleSignUp()">Sign Up</button>
+                    <button onclick="handleSignIn()">Login</button>
+                </div>
+            </div>
+            <div id="main-nav" class="hidden">
+                <button class="primary" onclick="startGame()">PLAY</button>
+                <div class="row">
+                    <button onclick="showLeaderboard()">Leaderboard</button>
+                    <button onclick="showStore()">Store</button>
+                </div>
+                <p id="user-welcome"></p>
+            </div>
+        </div>
+
+        <div id="gameover-overlay" class="overlay hidden">
+            <h2>GAME OVER</h2>
+            <p>Score: <span id="final-score">0</span></p>
+            <button onclick="saveCurrentScore()">Save to Leaderboard</button>
+            <button onclick="resetGame()">Back to Menu</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
